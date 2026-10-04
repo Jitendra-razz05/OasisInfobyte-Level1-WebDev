@@ -1,3 +1,9 @@
+/* =====================================================
+   OASIS INFOBYTE LEVEL 1 - TASK 2
+   PERSONAL PORTFOLIO
+   ===================================================== */
+
+/* ================= RESET ================= */
 
 * {
     margin: 0;
@@ -84,7 +90,7 @@ ul {
 
 .logo span {
     color: #a855f7;
-    font-size: 30px;
+    font-size: 35px;
     font-weight: bold;
 }
 
