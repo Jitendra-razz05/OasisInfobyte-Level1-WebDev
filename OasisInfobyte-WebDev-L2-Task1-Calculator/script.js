@@ -10,7 +10,7 @@ function appendValue(value) {
     }
 
     if (value === "*") {
-        value = "× ";
+        value = "×";
     }
 
     if (value === "/") {
@@ -27,10 +27,16 @@ function appendValue(value) {
         if (currentNumber === "") {
             display.value += "0";
         }
+
+        display.value += ".";
+        return;
     }
 
     if (["+", "-", "×", "÷", "%"].includes(value)) {
-        if (display.value === "" && value !== "-") {
+        if (display.value === "") {
+            if (value === "-") {
+                display.value = "-";
+            }
             return;
         }
 
@@ -74,10 +80,10 @@ function calculate() {
         expression = expression.replace(/×/g, "*");
         expression = expression.replace(/÷/g, "/");
 
-        const numbers = expression.match(/-?\d+(\.\d+)?/g);
+        const numbers = expression.match(/\d+(\.\d+)?/g);
         const operators = expression.match(/[+\-*/%]/g);
 
-        if (!numbers || numbers.length === 0) {
+        if (!numbers || !operators || numbers.length !== operators.length + 1) {
             throw new Error();
         }
 
